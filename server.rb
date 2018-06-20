@@ -30,16 +30,26 @@ class Array
   
   end
 
-  def print_map_file(ukuran,kordinat_X_user,kordinat_Y_user,jumlahdriver)
+  def print_map_file(ukuran,kordinat_X_user,kordinat_Y_user,jumlahdriver,driver1_x,driver1_y,
+    driver2_x,driver2_y,driver3_x,driver3_y,driver4_x,driver4_y,driver5_x,driver5_y)
+
     jumlahdriver_int = jumlahdriver.to_i
     new_array = Array.new(ukuran.to_i) {Array.new(ukuran.to_i,"[ ]")}
-    for i in 1..jumlahdriver_int do
-        row_random = rand(ukuran.to_i)
-        col_random = rand(ukuran.to_i)
-        new_array[row_random][col_random] = "[D]"
-    end
+
+
+        new_array[driver1_x.to_i][driver1_y.to_i] = "[D]"
+        new_array[driver1_x.to_i][driver1_y.to_i] = "[D]"
+        new_array[driver2_x.to_i][driver2_y.to_i] = "[D]"
+        new_array[driver2_x.to_i][driver2_y.to_i] = "[D]"
+        new_array[driver3_x.to_i][driver3_y.to_i] = "[D]"
+        new_array[driver3_x.to_i][driver3_y.to_i] = "[D]"
+        new_array[driver4_x.to_i][driver4_y.to_i] = "[D]"
+        new_array[driver4_x.to_i][driver4_y.to_i] = "[D]"
+        new_array[driver5_x.to_i][driver5_y.to_i] = "[D]"
+        new_array[driver5_x.to_i][driver5_y.to_i] = "[D]"
 
         new_array[kordinat_X_user.to_i][kordinat_Y_user.to_i] = "[X]"
+
    peta_lokasi = new_array
    for i in 0..peta_lokasi.length - 1 do
     puts peta_lokasi[i].join(" ")

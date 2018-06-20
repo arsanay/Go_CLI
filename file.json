@@ -1,0 +1,15 @@
+{
+  "ukuran" :10,
+  "kordinat_user" :[
+    0,
+    0
+    ],
+  "jumlah_driver": 5,
+ "drivers": [
+        { "koordinat":[ 1,1 ] },
+        {  "koordinat":[ 2,2 ] },
+        {"koordinat":[ 3,3 ]},
+        {"koordinat":[ 4,4 ]},
+        { "koordinat":[ 5,5 ]}
+    ]
+}
