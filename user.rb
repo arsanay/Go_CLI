@@ -8,9 +8,10 @@ class User
             "Hey My Name is #{args[0]}"
           when 2
             server.print_map(args[0],args[1])
-           
+          when 4
+            "Hey My Name is #{args[0]}"
           end
         end
  end
 user = User.new()
-puts user.print_details(10,10)
+puts user.print_details(5,5)
