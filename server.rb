@@ -8,7 +8,7 @@ class Array
     $jarak_driver1 = []
  
 
-  def print_map(panjang,lebar)
+  def print_map_tanpa_parameter(panjang,lebar)
       new_array = Array.new(panjang) {Array.new(lebar,"[ ]")}
       for i in 1..5 do
           row_random = rand(lebar)
