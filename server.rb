@@ -29,6 +29,47 @@ class Array
   peta_lokasi.lokasi_penumpang '[X]'
   
   end
+
+  def print_map_file(ukuran,kordinat_X_user,kordinat_Y_user,jumlahdriver)
+    jumlahdriver_int = jumlahdriver.to_i
+    new_array = Array.new(ukuran.to_i) {Array.new(ukuran.to_i,"[ ]")}
+    for i in 1..jumlahdriver_int do
+        row_random = rand(ukuran.to_i)
+        col_random = rand(ukuran.to_i)
+        new_array[row_random][col_random] = "[D]"
+    end
+
+        new_array[kordinat_X_user.to_i][kordinat_Y_user.to_i] = "[X]"
+   peta_lokasi = new_array
+   for i in 0..peta_lokasi.length - 1 do
+    puts peta_lokasi[i].join(" ")
+   end
+
+    peta_lokasi.lokasi_driver'[D]'
+    peta_lokasi.lokasi_penumpang '[X]'
+
+  end
+
+  def print_map(ukuran,kordinat_X_user,kordinat_Y_user)
+    new_array = Array.new(ukuran) {Array.new(ukuran,"[ ]")}
+    for i in 1..5 do
+        row_random = rand(ukuran)
+        col_random = rand(ukuran)
+        new_array[row_random][col_random] = "[D]"
+    end
+    
+        new_array[kordinat_X_user][kordinat_Y_user] = "[X]"
+  
+   peta_lokasi = new_array
+   for i in 0..peta_lokasi.length - 1 do
+    puts peta_lokasi[i].join(" ")
+   end
+
+peta_lokasi.lokasi_driver'[D]'
+peta_lokasi.lokasi_penumpang '[X]'
+
+end
+
   
   def lokasi_driver test
       lokasi_driver = []
@@ -120,7 +161,9 @@ class Array
   end
   
   def tarif(a,b)
-      jarak = (a[0]-b[0]+a[1]-b[1])
+    jaraka = a[0]-b[0]
+    jarakb = a[1]-b[1]
+      jarak = jaraka.abs + jarakb.abs
       print "Tarif perjalanan tiap block sebesar Rp.500\n"
       print "Perjalanan anda menempuh ",jarak.abs," block\n"
       print "Total tagihan Go-Ride anda Sebesar ",jarak.abs*500," rupiah\n"
