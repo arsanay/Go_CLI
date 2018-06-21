@@ -74,7 +74,6 @@ class Array
    for i in 0..peta_lokasi.length - 1 do
     puts peta_lokasi[i].join(" ")
    end
-
 peta_lokasi.lokasi_driver'[D]'
 peta_lokasi.lokasi_penumpang '[X]'
 
@@ -122,7 +121,7 @@ end
       $penumpang = lokasi_penumpang[0]
      
      print "Penumpang : " ,$penumpang,"\n"
-     driver_terdekat($penumpang,$driver1,$driver2,$driver3,$driver4,$driver5)
+    # driver_terdekat($penumpang,$driver1,$driver2,$driver3,$driver4,$driver5)
   end
   
   def driver_terdekat(penumpang,driver1,driver2,driver3,driver4,driver5)
