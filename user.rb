@@ -75,5 +75,5 @@ class User
  end
 user = User.new()
 #puts user.print_details()
-puts user.print_details(10,9,8)
-#puts user.print_details("/Users/650655/Go_CLI/file.json")
+#puts user.print_details(10,9,8)
+puts user.print_details("file.json")

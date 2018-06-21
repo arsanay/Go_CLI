@@ -1,0 +1,7 @@
+Catatan perjalanan menuju99'dari'00'dengan biaya'9000
+Catatan perjalanan menuju99'dari'00'dengan biaya'9000
+Catatan perjalanan menuju99'dari'00'dengan biaya'9000
+Catatan perjalanan menuju [9,9] dari [00] dengan biaya 9000
+Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000
+Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000
+Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000

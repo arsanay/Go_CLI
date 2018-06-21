@@ -1,4 +1,6 @@
+require_relative 'history.rb'
 class Array
+  
     $driver1 = 0
     $driver2 = 0
     $driver3 = 0
@@ -169,13 +171,19 @@ end
       tarif(tujuan,asal)
   end
   
-  def tarif(a,b)
-    jaraka = a[0]-b[0]
-    jarakb = a[1]-b[1]
+  def tarif(tujuan,asal)
+    history = History.new()
+    jaraka = tujuan[0]-asal[0]
+    jarakb = tujuan[1]-asal[1]
       jarak = jaraka.abs + jarakb.abs
       print "Tarif perjalanan tiap block sebesar Rp.500\n"
       print "Perjalanan anda menempuh ",jarak.abs," block\n"
       print "Total tagihan Go-Ride anda Sebesar ",jarak.abs*500," rupiah\n"
+
+      invoice = "Catatan perjalanan menuju [#{tujuan[0]},#{tujuan[1]}] dari [#{asal[0]},#{asal[1]}] dengan biaya #{jarak.abs*500}"
+      history.save_to_history(invoice)
+      history.read_history()
+
   end
 
   end
