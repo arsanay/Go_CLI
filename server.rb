@@ -7,6 +7,10 @@ class Array
     $driver5 = 0
     $passenger = 0
     $driver_name = ""
+    $destination = []
+    $pickup_coordinate = []
+    $new_bigger_coordinate_route_x 
+    $route = []
 
   def print_map_tanpa_parameter(length,width)
     puts "------------------MAP------------------"
@@ -158,13 +162,66 @@ class Array
  
   def destination(origin,destination_x,destination_y)
       driver_name = driver_name
-      pickup_coordinate = origin
-      destination =[destination_x,destination_y]
-      puts "You right now on coordinate #{pickup_coordinate}"
-      puts "Heading to destination on coordinate #{destination}"
-      fare(destination,pickup_coordinate)
+      $pickup_coordinate = origin
+      $destination =[destination_x,destination_y]
+      puts "You right now on coordinate #{$pickup_coordinate}"
+      puts "Heading to destination on coordinate #{$destination}"
+      route()
+      fare($destination,$pickup_coordinate)
+      
   end
-  
+  def route
+
+    coordinate_x_route = [$destination[0],$pickup_coordinate[0]]
+    coordinate_y_route = [$destination[1],$pickup_coordinate[1]]
+
+
+    array_x_coordinate = [coordinate_x_route[0],coordinate_x_route[1]]
+    array_y_coordinate = [coordinate_y_route[0],coordinate_y_route[1]]
+    smaller_coordinate_route_x = coordinate_x_route.each_with_index.min[0] #3
+    bigger_coordinate_route_x = coordinate_x_route.each_with_index.max[0] #9
+    smaller_coordinate_route_y = coordinate_y_route.each_with_index.min[0] #4
+    bigger_coordinate_route_y = coordinate_y_route.each_with_index.max[0] #8
+    range_x = bigger_coordinate_route_x - smaller_coordinate_route_x
+    range_y = bigger_coordinate_route_y - smaller_coordinate_route_y  
+    puts "This is estimation of your route"
+    for i in 0..range_x do
+      print "[#{bigger_coordinate_route_x-i}][#{bigger_coordinate_route_y}]==>"
+      $route << "[#{bigger_coordinate_route_x-i}][#{bigger_coordinate_route_y}]==>"
+      if i == range_x
+        $new_bigger_coordinate_route_x = bigger_coordinate_route_x-i
+      end
+    end
+    for i in 0..range_y do
+      print "[#{$new_bigger_coordinate_route_x }][#{bigger_coordinate_route_y-i}]==>"
+      $route << "[#{$new_bigger_coordinate_route_x }][#{bigger_coordinate_route_y-i}]==>"
+    end
+    puts "FINISH"
+    $route << "FINISH"
+
+=begin
+
+puts smaller_coordinate_route_x
+    puts "coordinate x0",coordinate_x_route[0]
+    puts "coordinate x1",coordinate_x_route[1]
+    puts "coordinate y0",coordinate_y_route[0]
+    puts "coordinate y1",coordinate_y_route[1]
+    puts bigger_coordinate_route_x
+    smaller_coordinate_route_x = coordinate_x_route.each_with_index.min[0]
+    bigger_coordinate_route_x = coordinate_x_route.each_with_index.min[1]
+    smaller_coordinate_route_y = coordinate_y_route.each_with_index.min[0]
+    bigger_coordinate_route_y = coordinate_y_route.each_with_index.min[1]
+    puts "bigger x",bigger_coordinate_route_x
+    puts "bigger y",bigger_coordinate_route_y
+    puts "smaller x",bigger_coordinate_route_x
+    puts "smaller y",bigger_coordinate_route_y
+
+    #range_x = bigger_coordinate_route_x.to_i -smaller_coordinate_route_x.to_i
+  #for i in 0..range_x
+    #puts [$destination[0]]
+  #end
+=end
+  end
   def fare(destination,pickup_coordinate)
     history = History.new()
     distance_a = destination[0]-pickup_coordinate[0]
@@ -173,12 +230,13 @@ class Array
       print "Trip fare each block is Rp.500\n"
       print "Your trip will through ",distance.abs," block\n"
       print "It will cost Rp.",distance.abs*500,"\n"
+      puts ""
       puts "Confirmation to order Go-Ride"
       puts "Insert '1' if you agree or insert '2' if you dont"
       choice = gets
       if choice.to_i== 1
         time_order = Time.now
-        invoice = "Trip recorded on #{time_order.ctime} heading to coordinate [#{destination[0]},#{destination[1]}] from pick up coordinate on [#{pickup_coordinate[0]},#{pickup_coordinate[1]}] with driver named #{$driver_name} costs #{distance.abs*500}"
+        invoice = "Trip recorded on #{time_order.ctime} heading to coordinate [#{$destination[0]},#{$destination[1]}] from pick up coordinate on [#{$pickup_coordinate[0]},#{$pickup_coordinate[1]}] with driver named #{$driver_name} costs #{distance.abs*500}\nThrough this route #{$route}\n\n"
         history.save_to_history(invoice)
         puts "Have fun with your trip"
         puts "This trip record saved on history"
