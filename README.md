@@ -7,4 +7,7 @@ All you need is just download all of this file and run user.rb file.
 This application can run within 3 different method. The first is method without parameters, then with 3 parameters (size of map, your x coordinate, your y coordinate) and last with file from outside program as parameters. You can use them by uncomment one of them and the bottom of user.rb file, if you want use one of them just uncomment and if you won't just comment it.
 
 
-Note : sometimes it shows an error, all you need is just re-run the application. The error caused by math.random that show at least twice same result and I haven't give error handling for this case.
+Note : 
+1. Sometimes it shows an error, all you need is just re-run the application. The error caused by math.random that show at least twice same result and I haven't give error handling for this case.
+2. I decide to use JSON format for outside file as parameter, because it make easier to parse and easier to read than the other.
+
