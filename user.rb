@@ -25,7 +25,7 @@ class User
             loop do
               print_menu()
               choice = gets
-               if choice.to_i == 1
+              if choice.to_i == 1
                server.print_map_tanpa_parameter(20,20)
                elsif choice.to_i == 2
                 server.nearest_driver($passenger,$driver1,$driver2,$driver3,$driver4,$driver5)
@@ -33,8 +33,7 @@ class User
                 server.read_history()
                elsif choice.to_i ==4
                 break
-
-            end
+              end
             end
           when 1
                 params =  File.read(args[0])
@@ -57,35 +56,33 @@ class User
                 loop do
                   print_menu()
                   choice = gets
-                   if choice.to_i == 1
-                server.print_map_file(size,coordinat_X_user,coordinat_Y_user,totaldriver,driver1_x,driver1_y,
-                driver2_x,driver2_y,driver3_x,driver3_y,driver4_x,driver4_y,driver5_x,driver5_y)
-              elsif choice.to_i == 2
-                server.nearest_driver($passenger,$driver1,$driver2,$driver3,$driver4,$driver5)
-              elsif choice.to_i ==3
-                server.read_history()
-               elsif choice.to_i ==4
-                break
+                  if choice.to_i == 1
+                      server.print_map_file(size,coordinat_X_user,coordinat_Y_user,totaldriver,driver1_x,driver1_y,
+                       driver2_x,driver2_y,driver3_x,driver3_y,driver4_x,driver4_y,driver5_x,driver5_y)
+                  elsif choice.to_i == 2
+                      server.nearest_driver($passenger,$driver1,$driver2,$driver3,$driver4,$driver5)
+                  elsif choice.to_i ==3
+                       server.read_history()
+                   elsif choice.to_i ==4
+                      break
+                    end
+                  end
 
-            end
-            end
           when 3
             loop do
               print_menu()
               choice = gets
-               if choice.to_i == 1
-            server.print_map(args[0],args[1],args[2])
-          elsif choice.to_i == 2
-            server.nearest_driver($passenger,$driver1,$driver2,$driver3,$driver4,$driver5)
-          elsif choice.to_i ==3
-            server.read_history()
-           elsif choice.to_i ==4
-            break
-
-        end
-        end
-          end
-         
+              if choice.to_i == 1
+                server.print_map(args[0],args[1],args[2])
+              elsif choice.to_i == 2
+                server.nearest_driver($passenger,$driver1,$driver2,$driver3,$driver4,$driver5)
+              elsif choice.to_i ==3
+                server.read_history()
+              elsif choice.to_i ==4
+                break
+                end
+              end
+            end
         end
  end
 user = User.new()

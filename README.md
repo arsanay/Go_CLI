@@ -11,4 +11,5 @@ Note :
 1. You can't order Go-Ride without select show map first, it will show an error because the map and the driver coordinate haven't generated
 2. Sometimes it will shows an error, all you need is just re-run the application. The error caused by math.random that show at least twice same result and I haven't give error handling for this case.
 3. I decide to use JSON format for outside file as parameter, because it make easier to parse and easier to read than the other.
+4. On file server.rb, it named as class Array. I want to change it to class Server but everything I try to change it shows an error and I can't resolve this one.
 
