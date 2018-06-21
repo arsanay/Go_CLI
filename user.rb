@@ -87,5 +87,5 @@ class User
  end
 user = User.new()
 #puts user.print_details()
-puts user.print_details(10,9,8)
+puts user.print_details(10,2,5)
 #puts user.print_details("file.json")

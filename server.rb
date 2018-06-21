@@ -171,57 +171,43 @@ class Array
       
   end
   def route
-
-    coordinate_x_route = [$destination[0],$pickup_coordinate[0]]
-    coordinate_y_route = [$destination[1],$pickup_coordinate[1]]
-
-
-    array_x_coordinate = [coordinate_x_route[0],coordinate_x_route[1]]
-    array_y_coordinate = [coordinate_y_route[0],coordinate_y_route[1]]
-    smaller_coordinate_route_x = coordinate_x_route.each_with_index.min[0] #3
-    bigger_coordinate_route_x = coordinate_x_route.each_with_index.max[0] #9
-    smaller_coordinate_route_y = coordinate_y_route.each_with_index.min[0] #4
-    bigger_coordinate_route_y = coordinate_y_route.each_with_index.max[0] #8
-    range_x = bigger_coordinate_route_x - smaller_coordinate_route_x
-    range_y = bigger_coordinate_route_y - smaller_coordinate_route_y  
+    jarak_x_coordinate =$destination[0]-$pickup_coordinate[0]
+    jarak_y_coordinate =$destination[1]-$pickup_coordinate[1]
     puts "This is estimation of your route"
-    for i in 0..range_x do
-      print "[#{bigger_coordinate_route_x-i}][#{bigger_coordinate_route_y}]==>"
-      $route << "[#{bigger_coordinate_route_x-i}][#{bigger_coordinate_route_y}]==>"
-      if i == range_x
-        $new_bigger_coordinate_route_x = bigger_coordinate_route_x-i
+
+      if $pickup_coordinate[0] > $destination[0]
+          for i in 0..jarak_x_coordinate.abs do
+            print "[#{$pickup_coordinate[0]-i}][#{$pickup_coordinate[1]}]==>"
+            $route << "[#{$pickup_coordinate[0]-i}][#{$pickup_coordinate[1]}}]==>"
+            if i == jarak_x_coordinate.abs
+              $new_bigger_coordinate_route_x = $pickup_coordinate[0]-i
+            end
+          end
+      elsif $pickup_coordinate[0] < $destination[0]
+          for i in 0..jarak_x_coordinate.abs do
+            print "[#{$pickup_coordinate[0]+i}][#{$pickup_coordinate[1]}]==>"
+            $route << "[#{$pickup_coordinate[0]+i}][#{$pickup_coordinate[1]}]==>"
+            if i == jarak_x_coordinate.abs        
+              $new_bigger_coordinate_route_x = $pickup_coordinate[0]+i
+            end
+          end
       end
-    end
-    for i in 0..range_y do
-      print "[#{$new_bigger_coordinate_route_x }][#{bigger_coordinate_route_y-i}]==>"
-      $route << "[#{$new_bigger_coordinate_route_x }][#{bigger_coordinate_route_y-i}]==>"
-    end
-    puts "FINISH"
-    $route << "FINISH"
 
-=begin
-
-puts smaller_coordinate_route_x
-    puts "coordinate x0",coordinate_x_route[0]
-    puts "coordinate x1",coordinate_x_route[1]
-    puts "coordinate y0",coordinate_y_route[0]
-    puts "coordinate y1",coordinate_y_route[1]
-    puts bigger_coordinate_route_x
-    smaller_coordinate_route_x = coordinate_x_route.each_with_index.min[0]
-    bigger_coordinate_route_x = coordinate_x_route.each_with_index.min[1]
-    smaller_coordinate_route_y = coordinate_y_route.each_with_index.min[0]
-    bigger_coordinate_route_y = coordinate_y_route.each_with_index.min[1]
-    puts "bigger x",bigger_coordinate_route_x
-    puts "bigger y",bigger_coordinate_route_y
-    puts "smaller x",bigger_coordinate_route_x
-    puts "smaller y",bigger_coordinate_route_y
-
-    #range_x = bigger_coordinate_route_x.to_i -smaller_coordinate_route_x.to_i
-  #for i in 0..range_x
-    #puts [$destination[0]]
-  #end
-=end
+      if $pickup_coordinate[1] > $destination[1]
+        for i in 1..jarak_y_coordinate.abs do
+          print "[#{$new_bigger_coordinate_route_x }][#{$pickup_coordinate[1]-i}]==>"
+          $route << "[#{$new_bigger_coordinate_route_x }][#{$pickup_coordinate[1]-i}]==>"
+        end
+      elsif $destination[1] > $pickup_coordinate[1]
+        for i in 1..jarak_y_coordinate.abs do
+          print "[#{$new_bigger_coordinate_route_x }][#{$pickup_coordinate[1]+i}]==>"
+          $route << "[#{$new_bigger_coordinate_route_x }][#{$pickup_coordinate[1]+i}]==>"
+        end
+      end
+      puts "FINISH"
+      $route << "FINISH"
   end
+
   def fare(destination,pickup_coordinate)
     history = History.new()
     distance_a = destination[0]-pickup_coordinate[0]
