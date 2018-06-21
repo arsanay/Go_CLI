@@ -1,10 +1,2 @@
-Catatan perjalanan pada Thu Jun 21 18:02:26 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
-Catatan perjalanan pada Thu Jun 21 18:02:48 2018 menuju [5,5] dari [9,8] dengan total biaya 3500
-Catatan perjalanan pada Thu Jun 21 18:03:05 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
-Catatan perjalanan pada Thu Jun 21 18:03:42 2018 menuju [4,4] dari [5,7] dengan total biaya 2000
-Catatan perjalanan pada Thu Jun 21 18:04:28 2018 menuju [4,4] dari [0,0] dengan total biaya 4000
-Catatan perjalanan pada Thu Jun 21 18:05:27 2018 menuju [9,9] dari [0,0] dengan total biaya 9000
-Catatan perjalanan pada Thu Jun 21 18:08:54 2018 menuju [1,1] dari [9,8] dengan total biaya 7500
-Catatan perjalanan pada Thu Jun 21 18:09:46 2018 menuju [1,1] dari [9,8] dengan total biaya 7500
-Catatan perjalanan pada Thu Jun 21 18:13:57 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
-Catatan perjalanan pada Thu Jun 21 18:15:17 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
+Trip recorded on Thu Jun 21 20:08:58 2018 heading to coordinate [5,5] from pick up coordinate on [9,8] with driver named Driver 1 cost 3500
+Trip recorded on Thu Jun 21 20:09:07 2018 heading to coordinate [4,5] from pick up coordinate on [9,8] with driver named Driver 3 cost 4000

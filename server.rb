@@ -7,6 +7,7 @@ class Array
     $driver4 = 0
     $driver5 = 0
     $passenger = 0
+    $driver_name = ""
 
  
 
@@ -154,24 +155,30 @@ end
       if indexarray+1 ==1
         puts "You will picked up by Driver 1",
             "Driver 1 location is on coordinate #{$driver1}"
+            $driver_name = "Driver 1"
        elsif indexarray+1 ==2
         puts "You will picked up by Driver 2",
             "Driver 2 location is on coordinate #{$driver2}"
+            $driver_name = "Driver 2"
        elsif indexarray+1 ==3
         puts "You will picked up by Driver 3",
             "Driver 3 location is on coordinate#{$driver3}"
+            $driver_name = "Driver 3"
        elsif indexarray+1 ==4
          puts "You will picked up by Driver 4",
             "Driver 4 location is on coordinate #{$driver4}"
+            $driver_name = "Driver 4"
         elsif indexarray+1 ==5
          puts "You will picked up by Driver 5",
             "Driver 5 location is on coordinate#{$driver5}"
+            $driver_name = "Driver 5"
         end
   
       destination($passenger,destination_x.to_i,destination_y.to_i)
   end
  
   def destination(origin,destination_x,destination_y)
+      driver_name = driver_name
       pickup_coordinate = origin
       destination =[destination_x,destination_y]
       puts "You right now on coordinate #{pickup_coordinate}"
@@ -186,13 +193,13 @@ end
       distance = distance_a.abs + distance_b.abs
       print "Trip fare each block is Rp.500\n"
       print "Your trip will through ",distance.abs," block\n"
-      print "Your total bill Go-Ride is Rp.",distance.abs*500,"\n"
+      print "It will cost Rp.",distance.abs*500,"\n"
       puts "Confirmation to order Go-Ride"
       puts "Insert '1' if you agree or insert '2' if you dont"
       choice = gets
       if choice.to_i== 1
         time_order = Time.now
-        invoice = "Catatan perjalanan pada #{time_order.ctime} menuju [#{destination[0]},#{destination[1]}] dari [#{pickup_coordinate[0]},#{pickup_coordinate[1]}] dengan total biaya #{distance.abs*500}"
+        invoice = "Trip recorded on #{time_order.ctime} heading to coordinate [#{destination[0]},#{destination[1]}] from pick up coordinate on [#{pickup_coordinate[0]},#{pickup_coordinate[1]}] with driver named #{$driver_name} cost #{distance.abs*500}"
         history.save_to_history(invoice)
         puts "Have fun with your trip"
         puts "This trip record saved on history"
