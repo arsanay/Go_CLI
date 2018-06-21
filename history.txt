@@ -1,2 +1,0 @@
-Trip recorded on Thu Jun 21 20:08:58 2018 heading to coordinate [5,5] from pick up coordinate on [9,8] with driver named Driver 1 cost 3500
-Trip recorded on Thu Jun 21 20:09:07 2018 heading to coordinate [4,5] from pick up coordinate on [9,8] with driver named Driver 3 cost 4000
