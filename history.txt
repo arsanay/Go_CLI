@@ -1,7 +1,10 @@
-Catatan perjalanan menuju99'dari'00'dengan biaya'9000
-Catatan perjalanan menuju99'dari'00'dengan biaya'9000
-Catatan perjalanan menuju99'dari'00'dengan biaya'9000
-Catatan perjalanan menuju [9,9] dari [00] dengan biaya 9000
-Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000
-Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000
-Catatan perjalanan menuju [9,9] dari [0,0] dengan biaya 9000
+Catatan perjalanan pada Thu Jun 21 18:02:26 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
+Catatan perjalanan pada Thu Jun 21 18:02:48 2018 menuju [5,5] dari [9,8] dengan total biaya 3500
+Catatan perjalanan pada Thu Jun 21 18:03:05 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
+Catatan perjalanan pada Thu Jun 21 18:03:42 2018 menuju [4,4] dari [5,7] dengan total biaya 2000
+Catatan perjalanan pada Thu Jun 21 18:04:28 2018 menuju [4,4] dari [0,0] dengan total biaya 4000
+Catatan perjalanan pada Thu Jun 21 18:05:27 2018 menuju [9,9] dari [0,0] dengan total biaya 9000
+Catatan perjalanan pada Thu Jun 21 18:08:54 2018 menuju [1,1] dari [9,8] dengan total biaya 7500
+Catatan perjalanan pada Thu Jun 21 18:09:46 2018 menuju [1,1] dari [9,8] dengan total biaya 7500
+Catatan perjalanan pada Thu Jun 21 18:13:57 2018 menuju [4,4] dari [9,8] dengan total biaya 4500
+Catatan perjalanan pada Thu Jun 21 18:15:17 2018 menuju [4,4] dari [9,8] dengan total biaya 4500

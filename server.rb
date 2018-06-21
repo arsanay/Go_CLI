@@ -6,37 +6,38 @@ class Array
     $driver3 = 0
     $driver4 = 0
     $driver5 = 0
-    $penumpang = 0
-    $jarak_driver1 = []
+    $passenger = 0
+
  
 
-  def print_map_tanpa_parameter(panjang,lebar)
-      new_array = Array.new(panjang) {Array.new(lebar,"[ ]")}
+  def print_map_tanpa_parameter(length,width)
+    puts "------------------MAP------------------"
+      new_array = Array.new(length) {Array.new(width,"[ ]")}
       for i in 1..5 do
-          row_random = rand(lebar)
-          col_random = rand(panjang)
+          row_random = rand(width)
+          col_random = rand(length)
           new_array[row_random][col_random] = "[D]"
       end
       for i in 1..1 do
-          row_random = rand(lebar)
-          col_random = rand(panjang)
+          row_random = rand(width)
+          col_random = rand(length)
           new_array[row_random][col_random] = "[X]"
       end
-     peta_lokasi = new_array
-     for i in 0..peta_lokasi.length - 1 do
-      puts peta_lokasi[i].join(" ")
+     map_location = new_array
+     for i in 0..map_location.length - 1 do
+      puts map_location[i].join(" ")
      end
   
-  peta_lokasi.lokasi_driver'[D]'
-  peta_lokasi.lokasi_penumpang '[X]'
+     map_location.driver_location '[D]'
+     map_location.passenger_location'[X]'
   
   end
 
-  def print_map_file(ukuran,kordinat_X_user,kordinat_Y_user,jumlahdriver,driver1_x,driver1_y,
+  def print_map_file(size,coordinat_X_user,coordinat_Y_user,totaldriver,driver1_x,driver1_y,
     driver2_x,driver2_y,driver3_x,driver3_y,driver4_x,driver4_y,driver5_x,driver5_y)
-
-    jumlahdriver_int = jumlahdriver.to_i
-    new_array = Array.new(ukuran.to_i) {Array.new(ukuran.to_i,"[ ]")}
+    puts "------------------MAP------------------"
+    totaldriver_int = totaldriver.to_i
+    new_array = Array.new(size.to_i) {Array.new(size.to_i,"[ ]")}
 
 
         new_array[driver1_x.to_i][driver1_y.to_i] = "[D]"
@@ -50,45 +51,46 @@ class Array
         new_array[driver5_x.to_i][driver5_y.to_i] = "[D]"
         new_array[driver5_x.to_i][driver5_y.to_i] = "[D]"
 
-        new_array[kordinat_X_user.to_i][kordinat_Y_user.to_i] = "[X]"
+        new_array[coordinat_X_user.to_i][coordinat_Y_user.to_i] = "[X]"
 
-   peta_lokasi = new_array
-   for i in 0..peta_lokasi.length - 1 do
-    puts peta_lokasi[i].join(" ")
+   map_location = new_array
+   for i in 0..map_location.length - 1 do
+    puts map_location[i].join(" ")
    end
 
-    peta_lokasi.lokasi_driver'[D]'
-    peta_lokasi.lokasi_penumpang '[X]'
+    map_location.driver_location'[D]'
+    map_location.passenger_location'[X]'
 
   end
 
-  def print_map(ukuran,kordinat_X_user,kordinat_Y_user)
-    new_array = Array.new(ukuran) {Array.new(ukuran,"[ ]")}
+  def print_map(size,coordinat_X_user,coordinat_Y_user)
+    puts "------------------MAP------------------"
+    new_array = Array.new(size) {Array.new(size,"[ ]")}
     for i in 1..5 do
-        row_random = rand(ukuran)
-        col_random = rand(ukuran)
+        row_random = rand(size)
+        col_random = rand(size)
         new_array[row_random][col_random] = "[D]"
     end
     
-        new_array[kordinat_X_user][kordinat_Y_user] = "[X]"
+        new_array[coordinat_X_user][coordinat_Y_user] = "[X]"
   
-   peta_lokasi = new_array
-   for i in 0..peta_lokasi.length - 1 do
-    puts peta_lokasi[i].join(" ")
+   map_location= new_array
+   for i in 0..map_location.length - 1 do
+    puts map_location[i].join(" ")
    end
-peta_lokasi.lokasi_driver'[D]'
-peta_lokasi.lokasi_penumpang '[X]'
+map_location.driver_location'[D]'
+map_location.passenger_location'[X]'
 
 end
 
   
-  def lokasi_driver test
-      lokasi_driver = []
+  def driver_location test
+    driver_location = []
       each_index do |i|
         row, j0 = self[i], 0
         while row.include? test
           if j = (row.index test)
-            lokasi_driver << [i, j0 + j]
+            driver_location << [i, j0 + j]
             j  += 1
             j0 += j
             row = row.drop j
@@ -97,21 +99,22 @@ end
       end
   
       #p r
-      $driver1 = lokasi_driver[0]
-      $driver2 = lokasi_driver[1]
-      $driver3 = lokasi_driver[2]
-      $driver4 = lokasi_driver[3]
-      $driver5 = lokasi_driver[4]
-     print "Driver 1 : " ,$driver1,"\n","Driver 2 : ",$driver2,"\n","Driver 3 : ",$driver3,"\n","Driver 4 : " ,$driver4,"\n","Driver 5 : ",$driver5,"\n"
+      $driver1 = driver_location[0]
+      $driver2 = driver_location[1]
+      $driver3 = driver_location[2]
+      $driver4 = driver_location[3]
+      $driver5 = driver_location[4]
+      puts ""
+     print "Driver 1 Location : " ,$driver1,"\n","Driver 2 Location : ",$driver2,"\n","Driver 3 Location : ",$driver3,"\n","Driver 4 Location : " ,$driver4,"\n","Driver 5 Location : ",$driver5,"\n"
   end
   
-  def lokasi_penumpang test
-      lokasi_penumpang = []
+  def passenger_location test
+      passenger_location = []
       each_index do |i|
         row, j0 = self[i], 0
         while row.include? test
           if j = (row.index test)
-            lokasi_penumpang << [i, j0 + j]
+            passenger_location << [i, j0 + j]
             j  += 1
             j0 += j
             row = row.drop j
@@ -119,72 +122,92 @@ end
         end
       end
   
-      lokasi_penumpang
-      $penumpang = lokasi_penumpang[0]
-     
-     print "Penumpang : " ,$penumpang,"\n"
+      passenger_location
+      $passenger = passenger_location[0]
+     puts ""
+     print "Your Location : " ,$passenger,"\n"
+     puts ""
     # driver_terdekat($penumpang,$driver1,$driver2,$driver3,$driver4,$driver5)
   end
   
-  def driver_terdekat(penumpang,driver1,driver2,driver3,driver4,driver5)
-      jarak_driver1 = [driver1[0]-penumpang[0], driver1[1]-penumpang[1]]
-      jarak_driver2 = [driver2[0]-penumpang[0], driver2[1]-penumpang[1]]
-      jarak_driver3 = [driver3[0]-penumpang[0], driver3[1]-penumpang[1]]
-      jarak_driver4 = [driver4[0]-penumpang[0], driver4[1]-penumpang[1]]
-      jarak_driver5 = [driver5[0]-penumpang[0], driver5[1]-penumpang[1]]
+  def nearest_driver(passenger,driver1,driver2,driver3,driver4,driver5)
+      puts "Insert your destination coordinate X"
+      destination_x = gets
+      puts "Insert your destination coordinate Y"
+      destination_y = gets
+      distance_driver1 = [driver1[0]-passenger[0], driver1[1]-passenger[1]]
+      distance_driver2 = [driver2[0]-passenger[0], driver2[1]-passenger[1]]
+      distance_driver3 = [driver3[0]-passenger[0], driver3[1]-passenger[1]]
+      distance_driver4 = [driver4[0]-passenger[0], driver4[1]-passenger[1]]
+      distance_driver5 = [driver5[0]-passenger[0], driver5[1]-passenger[1]]
 
-       int_driver1 = jarak_driver1[0].abs+jarak_driver1[1].abs
-       int_driver2 = jarak_driver2[0].abs+jarak_driver2[1].abs
-       int_driver3 = jarak_driver3[0].abs+jarak_driver3[1].abs
-       int_driver4 = jarak_driver4[0].abs+jarak_driver4[1].abs
-       int_driver5 = jarak_driver5[0].abs+jarak_driver5[1].abs
+       int_driver1 = distance_driver1[0].abs+distance_driver1[1].abs
+       int_driver2 = distance_driver2[0].abs+distance_driver2[1].abs
+       int_driver3 = distance_driver3[0].abs+distance_driver3[1].abs
+       int_driver4 = distance_driver4[0].abs+distance_driver4[1].abs
+       int_driver5 = distance_driver5[0].abs+distance_driver5[1].abs
   
       array_int_driver = [int_driver1,int_driver2,int_driver3,int_driver4,int_driver5]
       indexarray = array_int_driver.each_with_index.min[1]
   
   
       if indexarray+1 ==1
-        p "Anda akan dijemput oleh Driver 1",
-            "Lokasi Driver 1 berada pada",$driver1 
+        puts "You will picked up by Driver 1",
+            "Driver 1 location is on coordinate #{$driver1}"
        elsif indexarray+1 ==2
-        p "Anda akan dijemput oleh Driver 2",
-            "Lokasi Driver 2 berada pada",$driver2 
+        puts "You will picked up by Driver 2",
+            "Driver 2 location is on coordinate #{$driver2}"
        elsif indexarray+1 ==3
-        p "Anda akan dijemput oleh Driver 3",
-            "Lokasi Driver 3 berada pada",$driver3
+        puts "You will picked up by Driver 3",
+            "Driver 3 location is on coordinate#{$driver3}"
        elsif indexarray+1 ==4
-         p "Anda akan dijemput oleh Driver 4",
-            "Lokasi Driver 4 berada pada",$driver4 
+         puts "You will picked up by Driver 4",
+            "Driver 4 location is on coordinate #{$driver4}"
         elsif indexarray+1 ==5
-         p "Anda akan dijemput oleh Driver 5",
-            "Lokasi Driver 5 berada pada",$driver5 
+         puts "You will picked up by Driver 5",
+            "Driver 5 location is on coordinate#{$driver5}"
         end
   
-      tujuan($penumpang,9,9)
+      destination($passenger,destination_x.to_i,destination_y.to_i)
   end
  
-  def tujuan(a,b,c)
-      asal = a
-      tujuan =[b,c]
-      p "Lokasi Anda Berada Pada Titik",a
-      p "Menuju Lokasi Pada Titik",tujuan
-      tarif(tujuan,asal)
+  def destination(origin,destination_x,destination_y)
+      pickup_coordinate = origin
+      destination =[destination_x,destination_y]
+      puts "You right now on coordinate #{pickup_coordinate}"
+      puts "Heading to destination on coordinate #{destination}"
+      fare(destination,pickup_coordinate)
   end
   
-  def tarif(tujuan,asal)
+  def fare(destination,pickup_coordinate)
     history = History.new()
-    jaraka = tujuan[0]-asal[0]
-    jarakb = tujuan[1]-asal[1]
-      jarak = jaraka.abs + jarakb.abs
-      print "Tarif perjalanan tiap block sebesar Rp.500\n"
-      print "Perjalanan anda menempuh ",jarak.abs," block\n"
-      print "Total tagihan Go-Ride anda Sebesar ",jarak.abs*500," rupiah\n"
-
-      invoice = "Catatan perjalanan menuju [#{tujuan[0]},#{tujuan[1]}] dari [#{asal[0]},#{asal[1]}] dengan biaya #{jarak.abs*500}"
-      history.save_to_history(invoice)
-      history.read_history()
+    distance_a = destination[0]-pickup_coordinate[0]
+    distance_b = destination[1]-pickup_coordinate[1]
+      distance = distance_a.abs + distance_b.abs
+      print "Trip fare each block is Rp.500\n"
+      print "Your trip will through ",distance.abs," block\n"
+      print "Your total bill Go-Ride is Rp.",distance.abs*500,"\n"
+      puts "Confirmation to order Go-Ride"
+      puts "Insert '1' if you agree or insert '2' if you dont"
+      choice = gets
+      if choice.to_i== 1
+        time_order = Time.now
+        invoice = "Catatan perjalanan pada #{time_order.ctime} menuju [#{destination[0]},#{destination[1]}] dari [#{pickup_coordinate[0]},#{pickup_coordinate[1]}] dengan total biaya #{distance.abs*500}"
+        history.save_to_history(invoice)
+        puts "Have fun with your trip"
+        puts "This trip record saved on history"
+        puts ""
+      elsif choice.to_i== 2
+        puts "Order canceled"
+      end  
+      
 
   end
+
+  def read_history()
+    history = History.new()
+      history.read_history()
+  end 
 
   end
   
